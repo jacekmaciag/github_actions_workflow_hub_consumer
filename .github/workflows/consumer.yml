@@ -1,0 +1,18 @@
+name: GitHub Actions Workflow Hub | Consumer Workflow
+
+on:
+  workflow_call:
+    inputs:
+      user_input:
+        description: 'Input from producer'
+        required: true
+        type: string
+
+jobs:
+  consumer_job:
+    name: Consumer Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print input from producer
+        run: |
+          echo "Input from producer: ${{ inputs.user_input }}"
